@@ -6,6 +6,11 @@ on:
       - 'vercel.deployment.success'
 
 jobs:
+  debug_payload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context payload ref
+        run: echo "github.event.client_payload.git.ref = ${{ github.event.client_payload.git.ref }}"
   say_hello:
     if: github.event.client_payload.git.ref == 'refs/heads/develop'
     runs-on: ubuntu-latest
