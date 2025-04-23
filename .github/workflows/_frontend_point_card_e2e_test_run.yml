@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Dump GitHub context payload ref
         run: echo "github.event.client_payload.git.ref = ${{ github.event.client_payload.git.ref }}"
+      - name: Dump GitHub context payload deployment projectId
+        run: echo "github.event.client_payload.deployment.projectId = ${{ github.event.client_payload.deployment.projectId }}"
   say_hello:
     if: github.event.client_payload.git.ref == 'develop'
     runs-on: ubuntu-latest
